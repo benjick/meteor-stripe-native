@@ -12,6 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
+  api.addFiles('client/js.html', 'client');
   api.addFiles([
     'server/init.js',
     'server/methods/charges.js',
@@ -39,12 +40,14 @@ Package.onUse(function(api) {
 
   ], 'server');
   api.use('http','server');
+  api.use('templating','client')
   api.export('Stripe','server')
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use(['benjick:stripe-native']);
+  api.addFiles('tests/client.js','client');
   api.addFiles([
     'tests/init.js',
     'tests/charges.js',
