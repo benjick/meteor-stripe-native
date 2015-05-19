@@ -43,7 +43,7 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  api.use('tinytest','server');
+  api.use('tinytest');
   api.use(['benjick:stripe-native', 'underscore']);
   api.addFiles([
     'tests/init.js',
