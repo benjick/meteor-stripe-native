@@ -1,7 +1,7 @@
 Tinytest.add('Is Stripe client loaded?', function(test) {
-	test.isTrue(Stripe != null);
+	test.isNotUndefined(Stripe);
 });
 
 Tinytest.add('Is Stripe checkout loaded?', function(test) {
-	test.isTrue(StripeCheckout != null);
+	test.isNotUndefined(StripeCheckout);
 });
