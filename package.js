@@ -38,7 +38,7 @@ Package.onUse(function(api) {
     'server/methods/discounts.js',
 
   ], 'server');
-  api.use('http');
+  api.use('http','server');
   api.export('Stripe','server')
 });
 
