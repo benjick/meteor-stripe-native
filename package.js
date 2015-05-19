@@ -44,7 +44,7 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use(['benjick:stripe-native', 'underscore']);
+  api.use(['benjick:stripe-native']);
   api.addFiles([
     'tests/init.js',
     'tests/charges.js',
