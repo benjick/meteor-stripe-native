@@ -16,6 +16,10 @@
 	test.equal(true, result.data.paid);
 });*/
 
+Tinytest.add('define charges', function (test) {
+	test.isNotUndefined(Stripe.charges, 'Stripe.charges is not defined');
+});
+
 Tinytest.add('Get charges', function (test) {
 	var result = Stripe.charges.list();
 	test.ok();
