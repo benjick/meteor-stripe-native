@@ -1,7 +1,3 @@
-Tinytest.add('define customers', function (test) {
-	test.isNotUndefined(Stripe.customers, 'Stripe.customers is not defined');
-});
-
 Tinytest.add('Add, update and delete customer', function (test) {
 	var token = Stripe.tokens.create({
 		'card[number]': '4242424242424242',

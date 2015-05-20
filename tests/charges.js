@@ -1,23 +1,26 @@
-/*Tinytest.add('Create charge', function (test) {
+Tinytest.add('Card declined', function (test) {
 	var token = Stripe.tokens.create({
-		'card[number]': '4242424242424242',
+		'card[number]': '4000000000000002',
 		'card[exp_month]': 12,
 		'card[exp_year]': 2016,
 		'card[cvc]': '123'
 	});
 
-	var result = Stripe.charges.create({
-		amount: 400,
-		currency: "sek",
-		source: token.data.id,
-		description: "Charge for test@example.com"
-	})
+	try {
+		var result = Stripe.charges.create({
+			amount: 400,
+			currency: "sek",
+			source: token.data.id,
+			description: "Charge for test@example.com"
+		})
 
-	test.equal(true, result.data.paid);
-});*/
+		test.fail();
+	}
+	catch (e) {
+		console.log(e.error);
+		test.ok(e);
+	}
 
-Tinytest.add('define charges', function (test) {
-	test.isNotUndefined(Stripe.charges, 'Stripe.charges is not defined');
 });
 
 Tinytest.add('Get charges', function (test) {
