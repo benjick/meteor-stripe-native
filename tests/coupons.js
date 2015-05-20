@@ -6,14 +6,13 @@ Tinytest.add('Do everything with coupons', function (test) {
 		id: '25OFF'
 	});
 
+	Stripe.coupons.update("25OFF", {
+		'metadata[updated]': 'yes'
+	})
+
 	var coupon = Stripe.coupons.retrieve(coupon.data.id);
 
-	/*
-	//Not working, see: https://github.com/meteor/meteor/issues/4406
-	Stripe.coupons.update("25OFF", {
-		metadata: {'updated': 'yes'}
-	})
-	*/
+	test.equal(coupon.data.metadata.updated, 'yes')
 
 	Stripe.coupons.del(coupon.data.id);
 
