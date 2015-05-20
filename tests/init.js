@@ -13,3 +13,7 @@ Tinytest.add('define:Stripe.charges', function (test) {
 Tinytest.add('define:Stripe.customers', function (test) {
 	test.isNotUndefined(Stripe.customers, 'Stripe.customers is not defined');
 });
+
+Tinytest.add('define:Stripe.plans', function (test) {
+	test.isNotUndefined(Stripe.plans, 'Stripe.plans is not defined');
+});
