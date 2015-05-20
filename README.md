@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/benjick/meteor-stripe-native.svg?branch=master)](https://travis-ci.org/benjick/meteor-stripe-native)
-
-## Stripe Meteor (native)
+## Stripe Meteor (native) [![Build Status](https://travis-ci.org/benjick/meteor-stripe-native.svg?branch=master)](https://travis-ci.org/benjick/meteor-stripe-native)
 
 Implementing the Stripe API natively in Meteor, no need for wrapAsync
 
