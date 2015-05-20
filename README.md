@@ -1,6 +1,8 @@
-## Stripe Meteor (native) [![Build Status](https://travis-ci.org/benjick/meteor-stripe-native.svg?branch=master)](https://travis-ci.org/benjick/meteor-stripe-native)
+## Stripe (native) [![Build Status](https://travis-ci.org/benjick/meteor-stripe-native.svg?branch=master)](https://travis-ci.org/benjick/meteor-stripe-native)
 
 Implementing the Stripe API natively in Meteor, no need for wrapAsync
+
+See full docs at https://stripe.com/docs/api/node but note some differences 
 
 ### Implemented methods
 
@@ -15,31 +17,26 @@ Implementing the Stripe API natively in Meteor, no need for wrapAsync
 
 ### Differences with the node module
 
-* Class starts with a big S (Stripe vs stripe)
+* No callbacks
+* Stripe secret key is read from the environment variable STRIPE_SECRET
 * HTTP doesn't parse params correct, so nested objects is a bit special:
 
 node-stripe:
 
 ```js
-stripe.tokens.create({
-  card: {
-    "number": '4242424242424242',
-    "exp_month": 12,
-    "exp_year": 2016,
-    "cvc": '123'
-  }
-}, function(err, token) {
-  // asynchronously called
-});
+var Stripe = require("stripe")(
+  "sk_test_xxx"
+);
+
+Stripe.coupons.update("25OFF", {
+  metadata: {key: "value"}
+)
 ```
 
 meteor-stripe-native:
 
 ```js
-var result = Stripe.tokens.create({
-	'card[number]': '4242424242424242',
-	'card[exp_month]': 12,
-	'card[exp_year]': 2016,
-	'card[cvc]': '123'
-});
+Stripe.coupons.update("25OFF", {
+  'metadata[key]': 'value'
+})
 ```
