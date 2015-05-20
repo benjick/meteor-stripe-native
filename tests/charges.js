@@ -17,7 +17,6 @@ Tinytest.add('Card declined', function (test) {
 		test.fail();
 	}
 	catch (e) {
-		console.log(e.error);
 		test.ok(e);
 	}
 
