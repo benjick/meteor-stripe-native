@@ -1,12 +1,8 @@
 Package.describe({
   name: 'benjick:stripe-native',
   version: '0.1.0',
-  // Brief, one-line summary of the package.
   summary: 'Implementing the Stripe API as a Meteor package without the Node module',
-  // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/benjick/meteor-stripe-native.git',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
 });
 
