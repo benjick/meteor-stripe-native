@@ -54,5 +54,6 @@ Package.onTest(function(api) {
     'tests/refunds.js',
     'tests/customers.js',
     'tests/cards.js',
+    'tests/subscriptions.js',
   ],'server');
 });
