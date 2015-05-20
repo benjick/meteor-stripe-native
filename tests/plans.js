@@ -27,7 +27,6 @@ Tinytest.add('Do everything with plans', function (test) {
 	
 	var plans = Stripe.plans.list();
 	plans.data.data.forEach(function(plan) {
-		console.log(plan.id.substring(0,9));
 		if(plan.id.substring(0,9) === 'unittest_') {
 			Stripe.plans.del(plan.id);
 		}
