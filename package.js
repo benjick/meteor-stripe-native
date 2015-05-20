@@ -53,5 +53,6 @@ Package.onTest(function(api) {
     'tests/charges.js',
     'tests/refunds.js',
     'tests/customers.js',
+    'tests/cards.js',
   ],'server');
 });
