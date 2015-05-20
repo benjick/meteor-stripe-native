@@ -10,6 +10,7 @@ Implementing the Stripe API natively in Meteor, no need for wrapAsync
 * Cards
 * Subscriptions
 * Plans
+* Coupons
 * Tokens
 
 ### Differences with the node module

@@ -52,5 +52,6 @@ Package.onTest(function(api) {
     'tests/cards.js',
     'tests/subscriptions.js',
     'tests/plans.js',
+    'tests/coupons.js',
   ],'server');
 });
