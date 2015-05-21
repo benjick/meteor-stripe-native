@@ -14,7 +14,11 @@ Tinytest.add('Do everything with coupons', function (test) {
 
 	test.equal(coupon.data.metadata.updated, 'yes')
 
+	var before = Stripe.coupons.list();
+
 	Stripe.coupons.del(coupon.data.id);
 
-	Stripe.coupons.list();
+	var after = Stripe.coupons.list();
+
+	test.notEqual(before.data.data.length, after.data.data.length)
 })
