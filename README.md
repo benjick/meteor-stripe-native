@@ -10,11 +10,11 @@ See full docs at https://stripe.com/docs/api/node but note some differences
 * Refunds
 * Customers
 * Cards
-* Subscriptions
+* Subscriptions (missing tests)
 * Plans
 * Coupons
+* Discounts (missing tests)
 * Tokens
-* Discounts
 
 ### Differences with the node module
 
