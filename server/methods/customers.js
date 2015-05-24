@@ -6,7 +6,7 @@ Stripe.customers.create = function (object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', 'https://api.stripe.com/v1/customers', options);
+	return HTTP.call('POST', Stripe.baseUrl + 'customers', options);
 }
 
 Stripe.customers.retrieve = function (id) {
@@ -14,7 +14,7 @@ Stripe.customers.retrieve = function (id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', 'https://api.stripe.com/v1/customers/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id, options);
 }
 
 Stripe.customers.update = function (id, object) {
@@ -23,7 +23,7 @@ Stripe.customers.update = function (id, object) {
 		params: object
 	}
 
-	return HTTP.call('POST', 'https://api.stripe.com/v1/customers/' + id, options);
+	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id, options);
 
 }
 
@@ -32,7 +32,7 @@ Stripe.customers.del = function (id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('DELETE', 'https://api.stripe.com/v1/customers/' + id, options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id, options);
 
 }
 
@@ -41,6 +41,6 @@ Stripe.customers.list = function (object) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', 'https://api.stripe.com/v1/customers', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers', options);
 
 }
