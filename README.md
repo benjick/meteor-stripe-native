@@ -14,6 +14,7 @@ See full docs at https://stripe.com/docs/api/node but note some differences
 * Plans
 * Coupons
 * Discounts (missing tests)
+* Application fees (missing tests)
 * Tokens
 
 ### Differences with the node module
