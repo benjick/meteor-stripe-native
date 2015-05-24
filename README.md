@@ -35,7 +35,7 @@ Meteor.methods({
       var result = Stripe.charges.create({
         amount: 400,
         currency: 'sek',
-        source: token.data.id,
+        source: token.id,
         description: 'Imma chargin' mah lazer'
       });
 

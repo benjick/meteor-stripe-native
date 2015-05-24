@@ -3,7 +3,7 @@ Stripe.customers.deleteDiscount = function(id) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/discount', options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/discount', options).data;
 }
 
 Stripe.customers.deleteSubscriptionDiscount = function(id, subId) {
@@ -11,5 +11,5 @@ Stripe.customers.deleteSubscriptionDiscount = function(id, subId) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId + '/discount', options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId + '/discount', options).data;
 }

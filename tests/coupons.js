@@ -10,15 +10,15 @@ Tinytest.add('Do everything with coupons', function (test) {
 		'metadata[updated]': 'yes'
 	})
 
-	var coupon = Stripe.coupons.retrieve(coupon.data.id);
+	var coupon = Stripe.coupons.retrieve(coupon.id);
 
-	test.equal(coupon.data.metadata.updated, 'yes')
+	test.equal(coupon.metadata.updated, 'yes')
 
 	var before = Stripe.coupons.list();
 
-	Stripe.coupons.del(coupon.data.id);
+	Stripe.coupons.del(coupon.id);
 
 	var after = Stripe.coupons.list();
 
-	test.notEqual(before.data.data.length, after.data.data.length)
+	test.notEqual(before.data.length, after.data.length)
 })

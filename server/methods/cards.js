@@ -6,7 +6,7 @@ Stripe.customers.createSource = function(id, source) {
 		}
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/sources', options);
+	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/sources', options).data;
 
 }
 
@@ -15,7 +15,7 @@ Stripe.customers.retrieveCard = function(id, cardId) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/cards/' + cardId, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/cards/' + cardId, options).data;
 }
 
 Stripe.customers.updateCard = function(id, cardId, object) {
@@ -24,7 +24,7 @@ Stripe.customers.updateCard = function(id, cardId, object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/sources/' + cardId, options)
+	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/sources/' + cardId, options).data;
 }
 
 Stripe.customers.deleteCard = function(id, cardId) {
@@ -32,7 +32,7 @@ Stripe.customers.deleteCard = function(id, cardId) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/sources/' + cardId, options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/sources/' + cardId, options).data;
 }
 
 Stripe.customers.listCards = function(id, object) {
@@ -41,5 +41,5 @@ Stripe.customers.listCards = function(id, object) {
 		params: object
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/sources', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/sources', options).data;
 }

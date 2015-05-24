@@ -5,15 +5,8 @@ Stripe.tokens.create = function (object) {
 		auth: Stripe.secretKey,
 		params: object
 	}
-	
-	try {
-		var result = HTTP.call('POST', Stripe.baseUrl + 'tokens', options);
-	}
-	catch (e) {
-		throw new Meteor.Error("HTTP error", "Something went wrong");
-	}
 
-	return result;
+	return HTTP.call('POST', Stripe.baseUrl + 'tokens', options).data;
 }
 
 Stripe.tokens.retrieve = function (id) {
@@ -21,6 +14,6 @@ Stripe.tokens.retrieve = function (id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'tokens/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'tokens/' + id, options).data;
 
 }

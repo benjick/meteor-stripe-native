@@ -8,7 +8,7 @@ Stripe.charges.create = function(object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'charges', options);
+	return HTTP.call('POST', Stripe.baseUrl + 'charges', options).data;
 }
 
 Stripe.charges.retrieve = function(id) {
@@ -16,7 +16,7 @@ Stripe.charges.retrieve = function(id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id, options).data;
 }
 
 Stripe.charges.update = function(id, object) {
@@ -25,7 +25,7 @@ Stripe.charges.update = function(id, object) {
 		params: object
 	}
 
-	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id, options);
+	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id, options).data;
 }
 
 Stripe.charges.capture = function(id) {
@@ -33,7 +33,7 @@ Stripe.charges.capture = function(id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/capture/', options);
+	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/capture/', options).data;
 }
 
 Stripe.charges.list = function() {
@@ -41,12 +41,5 @@ Stripe.charges.list = function() {
 		auth: Stripe.secretKey
 	}
 
-	try {
-		var result = HTTP.call('GET', Stripe.baseUrl + 'charges', options);
-	}
-	catch (e) {
-		throw new Meteor.Error("HTTP error", "Something went wrong");
-	}
-
-	return result.data.data;
+	return HTTP.call('GET', Stripe.baseUrl + 'charges', options).data;
 }

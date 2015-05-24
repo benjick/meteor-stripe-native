@@ -11,14 +11,14 @@ Tinytest.add('Create customer, add card, charge card, delete card, delete custom
 		email: 'test@test.com'
 	});
 
-	var newcard = Stripe.customers.createSource(cust.data.id, token.data.id)
+	var newcard = Stripe.customers.createSource(cust.id, token.id)
 
-	Stripe.customers.deleteCard(cust.data.id, newcard.data.id)
-	var cards = Stripe.customers.listCards(cust.data.id);
-	test.equal(cards.data.data.length, 0)
+	Stripe.customers.deleteCard(cust.id, newcard.id)
+	var cards = Stripe.customers.listCards(cust.id);
+	test.equal(cards.data.length, 0)
 
-	Stripe.customers.del(cust.data.id);
-	var cust = Stripe.customers.retrieve(cust.data.id);
+	Stripe.customers.del(cust.id);
+	var cust = Stripe.customers.retrieve(cust.id);
 
-	test.isTrue(cust.data.deleted);
+	test.isTrue(cust.deleted);
 });

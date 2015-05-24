@@ -6,7 +6,7 @@ Stripe.plans.create = function(object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'plans', options)
+	return HTTP.call('POST', Stripe.baseUrl + 'plans', options).data;
 }
 
 Stripe.plans.retrieve = function(id) {
@@ -14,7 +14,7 @@ Stripe.plans.retrieve = function(id) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'plans/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'plans/' + id, options).data;
 }
 
 Stripe.plans.update = function(id, object) {
@@ -23,7 +23,7 @@ Stripe.plans.update = function(id, object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'plans/' + id, options)
+	return HTTP.call('POST', Stripe.baseUrl + 'plans/' + id, options).data;
 }
 
 Stripe.plans.del = function(id) {
@@ -31,7 +31,7 @@ Stripe.plans.del = function(id) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'plans/' + id, options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'plans/' + id, options).data;
 }
 
 Stripe.plans.list = function(object) {
@@ -40,5 +40,5 @@ Stripe.plans.list = function(object) {
 		params: object
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'plans', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'plans', options).data;
 }

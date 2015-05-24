@@ -4,7 +4,7 @@ Stripe.customers.createSubscription = function(id, object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/subscriptions', options)
+	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/subscriptions', options).data;
 }
 
 Stripe.customers.retrieveSubscription = function(id, subId) {
@@ -12,7 +12,7 @@ Stripe.customers.retrieveSubscription = function(id, subId) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options).data;
 
 }
 
@@ -22,7 +22,7 @@ Stripe.customers.updateSubscription = function(id, subId, object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options)
+	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options).data;
 }
 
 Stripe.customers.cancelSubscription = function(id, subId) {
@@ -30,7 +30,7 @@ Stripe.customers.cancelSubscription = function(id, subId) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options).data;
 }
 
 Stripe.customers.listSubscriptions = function(id) {
@@ -39,5 +39,5 @@ Stripe.customers.listSubscriptions = function(id) {
 		params: object
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/subscriptions', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'customers/' + id + '/subscriptions', options).data;
 }

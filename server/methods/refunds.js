@@ -5,7 +5,7 @@ Stripe.charges.createRefund = function(id, object) {
 		params: object
 	}
 
-	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/refunds', options);
+	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/refunds', options).data;
 }
 
 Stripe.charges.retrieveRefund = function(id, charge) {
@@ -13,7 +13,7 @@ Stripe.charges.retrieveRefund = function(id, charge) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id + '/refunds/' + charge, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id + '/refunds/' + charge, options).data;
 }
 
 Stripe.charges.updateRefund = function(id, charge, object) {
@@ -22,7 +22,7 @@ Stripe.charges.updateRefund = function(id, charge, object) {
 		params: object
 	}
 
-	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/refunds/' + charge, options);
+	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/refunds/' + charge, options).data;
 }
 
 Stripe.charges.listRefunds = function(id, object) {
@@ -31,5 +31,5 @@ Stripe.charges.listRefunds = function(id, object) {
 		params: object
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id + '/refunds', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'charges/' + id + '/refunds', options).data;
 }

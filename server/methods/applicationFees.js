@@ -5,7 +5,7 @@ Stripe.applicationFees.retrieve = function(id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'application_fees/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'application_fees/' + id, options).data;
 }
 
 Stripe.applicationFees.list = function(object) {
@@ -14,5 +14,5 @@ Stripe.applicationFees.list = function(object) {
 		params: object
 	}
 
-	return HTTP.call('GET', Stripe.baseUrl + 'application_fees', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'application_fees', options).data;
 }

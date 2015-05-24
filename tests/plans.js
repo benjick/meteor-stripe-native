@@ -23,10 +23,10 @@ Tinytest.add('Do everything with plans', function (test) {
 	})
 
 	var silver = Stripe.plans.retrieve('unittest_silver');
-	test.equal(silver.data.name, newName, 'Wrong name');
+	test.equal(silver.name, newName, 'Wrong name');
 	
 	var plans = Stripe.plans.list();
-	plans.data.data.forEach(function(plan) {
+	plans.data.forEach(function(plan) {
 		if(plan.id.substring(0,9) === 'unittest_') {
 			Stripe.plans.del(plan.id);
 		}

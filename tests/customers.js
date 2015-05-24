@@ -8,20 +8,20 @@ Tinytest.add('Add, update and delete customer', function (test) {
 
 	var cust = Stripe.customers.create({
 		description: 'Customer for test@example.com',
-		source: token.data.id,
+		source: token.id,
 		email: 'test@test.com'
 	});
 
-	test.equal(cust.data.email, 'test@test.com', 'Missing email');
+	test.equal(cust.email, 'test@test.com', 'Missing email');
 
-	var cust = Stripe.customers.update(cust.data.id, {
+	var cust = Stripe.customers.update(cust.id, {
 		email: 'test2@test.com'
 	});
 
-	test.equal(cust.data.email, 'test2@test.com', 'Missing email');
+	test.equal(cust.email, 'test2@test.com', 'Missing email');
 
-	var response = Stripe.customers.del(cust.data.id);
-	var cust = Stripe.customers.retrieve(cust.data.id);
+	var response = Stripe.customers.del(cust.id);
+	var cust = Stripe.customers.retrieve(cust.id);
 
-	test.isTrue(cust.data.deleted);
+	test.isTrue(cust.deleted);
 });

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'benjick:stripe-native',
-  version: '0.4.0',
+  version: '1.0.0',
   summary: 'Implementing the Stripe API as a Meteor package without the Node module',
   git: 'https://github.com/benjick/meteor-stripe-native.git',
   documentation: 'README.md'

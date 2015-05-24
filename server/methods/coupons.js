@@ -6,7 +6,7 @@ Stripe.coupons.create = function(object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'coupons', options)
+	return HTTP.call('POST', Stripe.baseUrl + 'coupons', options).data;
 }
 
 Stripe.coupons.retrieve = function(id) {
@@ -14,7 +14,7 @@ Stripe.coupons.retrieve = function(id) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'coupons/' + id, options);
+	return HTTP.call('GET', Stripe.baseUrl + 'coupons/' + id, options).data;
 }
 
 Stripe.coupons.update = function(id, object) {
@@ -23,7 +23,7 @@ Stripe.coupons.update = function(id, object) {
 		params: object
 	}
 	
-	return HTTP.call('POST', Stripe.baseUrl + 'coupons/' + id, options)
+	return HTTP.call('POST', Stripe.baseUrl + 'coupons/' + id, options).data;
 }
 
 Stripe.coupons.del = function(id) {
@@ -31,7 +31,7 @@ Stripe.coupons.del = function(id) {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('DELETE', Stripe.baseUrl + 'coupons/' + id, options);
+	return HTTP.call('DELETE', Stripe.baseUrl + 'coupons/' + id, options).data;
 }
 
 Stripe.coupons.list = function() {
@@ -39,5 +39,5 @@ Stripe.coupons.list = function() {
 		auth: Stripe.secretKey
 	}
 	
-	return HTTP.call('GET', Stripe.baseUrl + 'coupons', options);
+	return HTTP.call('GET', Stripe.baseUrl + 'coupons', options).data;
 }

@@ -10,7 +10,7 @@ Tinytest.add('Card declined', function (test) {
 		var result = Stripe.charges.create({
 			amount: 400,
 			currency: "sek",
-			source: token.data.id,
+			source: token.id,
 			description: "Charge for test@example.com"
 		})
 
