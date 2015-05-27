@@ -36,7 +36,7 @@ Meteor.methods({
         amount: 400,
         currency: 'sek',
         source: token.id,
-        description: 'Imma chargin' mah lazer'
+        description: "Imma chargin' mah lazer"
       });
 
       // do something with result, save to db maybe?
