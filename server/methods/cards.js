@@ -7,7 +7,6 @@ Stripe.customers.createSource = function(id, source) {
 	}
 	
 	return HTTP.call('POST', Stripe.baseUrl + 'customers/' + id + '/sources', options).data;
-
 }
 
 Stripe.customers.retrieveCard = function(id, cardId) {
