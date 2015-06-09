@@ -21,3 +21,8 @@ Tinytest.add('define:Stripe.plans', function (test) {
 Tinytest.add('define:Stripe.coupons', function (test) {
 	test.isNotUndefined(Stripe.coupons, 'Stripe.coupons is not defined');
 });
+
+Tinytest.add('define:Stripe.accounts/account', function (test) {
+	test.isNotUndefined(Stripe.accounts, 'Stripe.accounts is not defined');
+	test.isNotUndefined(Stripe.account, 'Stripe.account is not defined');
+});
