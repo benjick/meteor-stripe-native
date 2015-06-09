@@ -9,11 +9,9 @@ Tinytest.add('Create charge and refund it', function (test) {
 	var charge = Stripe.charges.create({
 		amount: 1337,
 		currency: "sek",
-		source: token.data.id,
+		source: token.id,
 		description: "Charge for test@example.com"
 	})
 
-	var result = Stripe.charges.createRefund(charge.data.id);
-
-	test.equal(200, result.statusCode);
+	var result = Stripe.charges.createRefund(charge.id);
 });
