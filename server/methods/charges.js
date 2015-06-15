@@ -7,7 +7,7 @@ Stripe.charges.create = function(object) {
 		auth: Stripe.secretKey,
 		params: object
 	}
-	
+
 	return HTTP.call('POST', Stripe.baseUrl + 'charges', options).data;
 }
 
@@ -33,7 +33,7 @@ Stripe.charges.capture = function(id) {
 		auth: Stripe.secretKey
 	}
 
-	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/capture/', options).data;
+	return HTTP.call('POST', Stripe.baseUrl + 'charges/' + id + '/capture', options).data;
 }
 
 Stripe.charges.list = function() {
