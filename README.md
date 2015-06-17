@@ -1,10 +1,18 @@
 ## Stripe (native) [![Build Status](https://travis-ci.org/benjick/meteor-stripe-native.svg?branch=master)](https://travis-ci.org/benjick/meteor-stripe-native)
 
-Implementing the Stripe API natively in Meteor, no need for wrapAsync
+Implementing the Stripe API natively in Meteor, no need for wrapAsync.
+
+This package also includes [Stripe.js](https://stripe.com/docs/stripe.js) and [Stripe Checkout](https://stripe.com/docs/checkout). See bottom of readme under "Client"
 
 See full docs at https://stripe.com/docs/api/node but note some differences 
 
-### Implemented methods
+## Install
+
+Using Meteor's Package System:
+
+  $ meteor add benjick:stripe-native
+
+## Implemented methods
 
 * Charges
 * Refunds
@@ -18,13 +26,13 @@ See full docs at https://stripe.com/docs/api/node but note some differences
 * Account (need more tests)
 * Tokens
 
-### Differences with the node module
+## Differences with the node module
 
-#### No callbacks
+### No callbacks
 
 For example:
 
-##### server-side
+#### server-side
 
 ```js
 Meteor.methods({
@@ -51,7 +59,7 @@ Meteor.methods({
 });
 ```
 
-##### client-side
+#### client-side
 
 ```js
 Meteor.call('charge', token, function (error, result) {
@@ -60,13 +68,13 @@ Meteor.call('charge', token, function (error, result) {
 });
 ```
 
-#### Stripe secret key is read from the environment variable STRIPE_SECRET
+### Stripe secret key is read from the environment variable STRIPE_SECRET
 
 ```js
 Stripe.secretKey = process.env.STRIPE_SECRET + ':null';
 ```
 
-#### HTTP doesn't parse params correct, so nested objects is a bit special:
+### HTTP doesn't parse params correct, so nested objects is a bit special:
 
 node-stripe:
 
@@ -86,4 +94,25 @@ meteor-stripe-native:
 Stripe.coupons.update("25OFF", {
   'metadata[key]': 'value'
 })
+```
+
+## Client
+
+Stripe.js is now loaded directly from stripe.com and this happens after all other Meteor scripts are loaded. As such, the `Stripe` variable is not immediately available for use so instead, calls need to be deferred until after your Meteor app has started, like so:
+
+```js
+Meteor.startup(function() {
+    Stripe.setPublishableKey('YOUR_PUBLISHABLE_KEY');
+});
+```
+
+The same goes for Stripe Checkout, too:
+
+```js
+Meteor.startup(function() {
+    var handler = StripeCheckout.configure({
+    key: 'YOUR_PUBLISHABLE_KEY',
+    token: function(token) {}
+  });
+});
 ```
