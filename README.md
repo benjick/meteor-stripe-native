@@ -10,7 +10,7 @@ See full docs at https://stripe.com/docs/api/node but note some differences
 
 Using Meteor's Package System:
 
-  $ meteor add benjick:stripe-native
+    $ meteor add benjick:stripe-native
 
 ## Implemented methods
 
