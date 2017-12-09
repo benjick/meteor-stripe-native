@@ -33,7 +33,7 @@ Stripe.customers.cancelSubscription = function(id, subId) {
 	return HTTP.call('DELETE', Stripe.baseUrl + 'customers/' + id + '/subscriptions/' + subId, options).data;
 }
 
-Stripe.customers.listSubscriptions = function(id) {
+Stripe.customers.listSubscriptions = function(id,object) {
 	var options = {
 		auth: Stripe.secretKey,
 		params: object
